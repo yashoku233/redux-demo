@@ -6,6 +6,15 @@ import type {TodoItemType} from '../store/todoList'
 
 const TodoList : FC = () => {
     const TodoList = useSelector<StateType>(state => state.todoList) as TodoItemType[]
+
+    function del (id: string) {
+        
+    }
+
+    function toggle(id: string) {
+
+    }
+
     return  <>/
         <p>TodoList demo</p>
         {TodoList.map(todo => {
@@ -13,9 +22,9 @@ const TodoList : FC = () => {
            return <li key = {id} 
            style={{ textDecoration : completed ? 'line-through' : ''}}
            >
-            <span>{title}</span>
+            <span onClick={() => toggle(id)}>{title}</span>
             &nbsp;
-            <button onClick={() => t}>删除</button>
+            <button onClick={() => del(id)}>删除</button>
            </li> 
         })}
     </>
